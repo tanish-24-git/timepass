@@ -1,0 +1,52 @@
+# ---------------- Python ----------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+*.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ---------------- PyInstaller ----------------
+dist/
+build/
+*.spec
+
+# ---------------- Config ----------------
+config.json
+
+# ---------------- OS Files ----------------
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+.nfs*
+
+# ---------------- IDEs ----------------
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# ---------------- Logs ----------------
+*.log
+
+# ---------------- Temp Files ----------------
+*.tmp
+*.temp
+*.swp
+# Node modules
+node_modules/
