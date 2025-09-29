@@ -6,9 +6,6 @@ const fetchRepoContents = require('../utils/fetchRepo');
 const winston = require('winston');
 
 const router = express.Router();
-const GROQ_KEY = process.env.GROQ_API_KEY;
-const GEMINI_KEY = process.env.GEMINI_API_KEY;
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
 // Logger setup
 const logger = winston.createLogger({
@@ -18,6 +15,9 @@ const logger = winston.createLogger({
 });
 
 async function callAI(aiType, message) {
+  const GROQ_KEY = process.env.GROQ_API_KEY;
+  const GEMINI_KEY = process.env.GEMINI_API_KEY;
+
   let url, config, dataKey;
   if (aiType === 'groq') {
     if (!GROQ_KEY) throw new Error('GROQ_API_KEY is missing in .env');
@@ -120,6 +120,7 @@ router.post('/ingest-repo', async (req, res, next) => {
       throw new Error('Invalid GitHub URL. Use format: https://github.com/owner/repo');
     }
     const [_, owner, repo] = match;
+    const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
     logger.debug(`Using GITHUB_TOKEN: ${GITHUB_TOKEN ? 'present' : 'not present'}`);
     const octokit = new Octokit(GITHUB_TOKEN ? { auth: GITHUB_TOKEN } : undefined);
     try {
