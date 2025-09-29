@@ -1,4 +1,5 @@
 module.exports = function decomposePrompt(prompt, level) {
+  if (!prompt || !level) throw new Error('Invalid input');
   // Advanced decomposition: CoT, ToT, etc.
   return [
     `Chain-of-Thought: Step-by-step breakdown of ${prompt} at ${level} level.`,
