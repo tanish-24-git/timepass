@@ -2,6 +2,7 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
+  devtool: 'source-map', // Use source-map to avoid eval and comply with CSP
   entry: {
     popup: './src/index.js',
     content: './src/content.js',

@@ -5,7 +5,9 @@
   "description": "React-based Chrome extension for AI-powered prompt enhancement and code ingestion",
   "permissions": [
     "activeTab",
-    "storage",
+    "storage"
+  ],
+  "host_permissions": [
     "http://localhost:5000/*",
     "https://your-production-url.com/*"
   ],
