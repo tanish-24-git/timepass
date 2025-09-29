@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "AI Prompt Enhancer",
+  "version": "1.0.0",
+  "description": "React-based Chrome extension for AI-powered prompt enhancement and code ingestion",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "http://localhost:5000/*",
+    "https://your-production-url.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
